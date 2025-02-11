@@ -1,0 +1,11 @@
+escalabilidade vertical - upgrade de equipamento
+escalabilidade horizontal - aquisição de equipamento
+
+DATA WAREHOUSE
+
+Uma Data Warehouse (Armazém de Dados) é uma estrutura centralizada de armazenamento de dados, projetada para facilitar a análise de grandes volumes de dados provenientes de diferentes fontes. Seu principal objetivo é fornecer uma visão unificada e consistente dos dados para tomada de decisões estratégicas nas empresas
+
+ANALISE
+
+O Data Warehouse é otimizado para consultas analíticas e relatórios complexos. As ferramentas de Business Intelligence (BI) são conectadas ao Data Warehouse, permitindo aos analistas e tomadores de decisão explorar dados, criar relatórios, gráficos e dashboards.
+
