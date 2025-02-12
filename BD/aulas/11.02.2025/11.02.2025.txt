@@ -9,3 +9,74 @@ ANALISE
 
 O Data Warehouse é otimizado para consultas analíticas e relatórios complexos. As ferramentas de Business Intelligence (BI) são conectadas ao Data Warehouse, permitindo aos analistas e tomadores de decisão explorar dados, criar relatórios, gráficos e dashboards.
 
+TIPOS DE BANCO DE DADOS NAO RELACIONAIS
+
+tipo BDNR (chave-valor) - Ex. : Redis
+armazenamento - sessão
+
+sessão1 -> {'usuario':'jao', 'carrinho': 'prod1', 'prod2'}
+
+orientados a coluna
+
+exemplo: Cassandra
+uso: analise de dados redes sociais
+
+id nome postagens
+1  jao	["post1"]
+2  jao2	["post2"]
+
+orientados a grafos
+
+exemplo: neo4j, firebase
+uso: redes sociais e recomendações
+("usuário":"joao") - [:amigo] -> ("usuário": "maria")
+("usuário":"joao") - [:recomenda] -> ("produto": "livro1")
+
+vantagens banco de dados não relacional: escalabilidade, flexibilidade, alta velocidade na escrita e leitura
+
+desvantagens banco de dados não relacional: inconsistência, gerenciamento complexo
+
+-----------------------------------------------------------------------------------------
+
+Modelagem de dados não estruturados
+o que é dado não estruturado ? São informações que não seguem um formato ou modelo.
+
+características
+
+* variedade: texto, áudio, imagem, vídeos, etc.
+* volume: normalmente grandes e em grandes quantidades.
+* velocidade: produzidos rápido como em redes sociais ou sensores IOT.
+
+
+como inserir dados no MongoDB
+
+DB.nomeColeção.insert
+({"chave": "valor",
+"chave": "valor",
+"chave": "valor"
+},
+{ "chave":"valor"
+});
+
+buscar dados:
+
+DB.nomeColeção.find(); -> lista tudo sem especificidade
+DB.nomeColeção.find({"idade": {$gt: 20}}); $gt -> maior, $lt -> menor
+
+atualizar dados:
+
+DB.nomeColeção.update({ "nome": "Pedro"}, {$set: {idade>20}});
+
+update - altera um campo 
+alter - altera todo o registro
+
+remoção de dados
+
+DB.nomeColeção.deleteOne({"nome": "Pedro"});
+
+deletar coleção
+
+DB.nomeColeção.delete({});
+
+
+
