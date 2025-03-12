@@ -1,21 +1,19 @@
-#Crie um vetor para digitar nomes de Times de Futebol , sem especificar o tamanho do vetor e mostrar os nomes dos times no final e termine quando digitar 0
-
+# Criando uma lista vazia para armazenar os nomes dos times
 times = []
+
+# Loop para permitir a entrada de nomes de times
 while True:
-    time = input("Digite o nome do time: ")
-    if time == "0":
+    # Solicita ao usuário que digite um nome de time ou 0 para finalizar
+    entrada = input("Digite o nome de um time de futebol (ou '0' para encerrar): ")
+
+    # Se o usuário digitar '0', o loop é encerrado
+    if entrada == '0':
         break
-    times.append(time)
 
-print(times)
+    # Adiciona o nome do time à lista, após dividir a entrada em palavras (caso o usuário queira digitar mais de um nome separado por espaço)
+    times.extend(entrada.split())
 
-
-
-
-
-
-
-
-
-
-
+# Exibe os nomes dos times digitados
+print("\nTimes de Futebol digitados:")
+for time in times:
+    print(time)
