@@ -1,5 +1,7 @@
 const { MongoClient } = require("mongodb");
 
+//para executar um de cada vez comente as operações que não queremos executar
+
 async function main() {
     const uri = "mongodb://127.0.0.1:27017";
     const client = new MongoClient(uri);
@@ -11,26 +13,27 @@ async function main() {
         const database = client.db("rpg_db");
         const personagens = database.collection("personagens");
  
+        // Cadastrar personagens    
             await personagens.insertMany([
                 { nome: "Jacobo Fogo", classe: "mago", nivel: 12, habilidades: ["bola de fogo", "invisibilidade"], vida: 100 },
                 { nome: "Borin Pedraqueixo", classe: "guerreiro", nivel: 15, habilidades: ["golpe de machado", "grito de guerra"], vida: 150 },
-                { nome: "Eldrin Sombralis", classe: "arqueiro", nivel: 8, habilidades: ["disparo sombrio", "visão aguçada"], vida: 80 },
+                { nome: "Eldrin Sombralis", classe: "arqueiro", nivel: 8, habilidades: ["disparo sombrio", "visão aguçada"], vida: 5 },
                 { nome: "Thalion Aster", classe: "mago", nivel: 18, habilidades: ["tempestade arcana", "barreira mágica"], vida: 120 },
                 { nome: "Kara Valente", classe: "guerreiro", nivel: 10, habilidades: ["escudo impenetrável", "corte veloz"], vida: 170 },
-                { nome: "Seraphina Luz", classe: "curandeiro", nivel: 5, habilidades: ["cura divina", "proteção sagrada"], vida: 50 }
+                { nome: "Seraphina Luz", classe: "curandeiro", nivel: 5, habilidades: ["cura divina", "proteção sagrada"], vida: 20 }
             ]);
             console.log("Personagens cadastrados");
         
 
         // Listar personagens com nível superior a 10
-        const nivelAlto = await personagens.find({ nivel: { $gt: 10 } }).toArray();
-        console.log("Personagens acima do nível 10:", nivelAlto);
+        // const nivelAlto = await personagens.find({ nivel: { $gt: 10 } }).toArray();
+        // console.log("Personagens acima do nível 10:", nivelAlto);
 
-        // Encontrar guerreiros disponíveis para uma missão urgente
-        const guerreiros = await personagens.find({ classe: "guerreiro" }).toArray();
-        console.log("Guerreiros disponíveis:", guerreiros);
+        // // Encontrar guerreiros disponíveis para uma missão urgente
+        // const guerreiros = await personagens.find({ classe: "guerreiro" }).toArray();
+        // console.log("Guerreiros disponíveis:", guerreiros);
 
-        // Aumentar a vida de todos os guerreiros para 200
+        // // Aumentar a vida de todos os guerreiros para 200
         // await personagens.updateMany({ classe: "guerreiro" }, { $set: { vida: 200 } });
         // console.log("Vida dos guerreiros aumentada para 200!");
 
@@ -55,5 +58,5 @@ db.personagens.updateMany({ classe: "guerreiro" }, { $set: { vida: 200 } })  # A
 db.personagens.deleteMany({ vida: { $lt: 30 } })  # Remover personagens derrotados
 
 */
-// Rodar a função principal
+
 main().catch(console.error);

@@ -1,5 +1,7 @@
 const { MongoClient } = require("mongodb");
 
+//para executar um de cada vez comente as operações que não queremos executar
+
 async function main() {
     // Conectar ao MongoDB (Local)
     const uri = "mongodb://127.0.0.1:27017";
@@ -9,11 +11,11 @@ async function main() {
         await client.connect();
         console.log("Conectado ao MongoDB!");
 
-        // Criar banco de dados e coleção
+
         const database = client.db("space_db");
         const naves = database.collection("naves");
 
-        // Inserir naves espaciais
+        // Cadastrar naves
         await naves.insertMany([
             { nome: "Patricio AmongUs", tipo: "exploração", capacidadeTripulantes: 6, emMissao: true },
             { nome: "Colossus", tipo: "carga", capacidadeTripulantes: 3, emMissao: false },
@@ -23,8 +25,8 @@ async function main() {
         console.log("Naves cadastradas!");
 
         // Listar todas as naves que estão em missão
-        const emMissao = await naves.find({ emMissao: true }).toArray();
-        console.log("Naves em missão:", emMissao);
+        // const emMissao = await naves.find({ emMissao: true }).toArray();
+        // console.log("Naves em missão:", emMissao);
 
         // // Encontrar naves com mais de 5 tripulantes
         // const grandes = await naves.find({ capacidadeTripulantes: { $gt: 5 } }).toArray();
